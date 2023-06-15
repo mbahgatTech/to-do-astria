@@ -8,7 +8,7 @@ const POST = async (req: NextRequest) => {
         messages,
         model: OPEN_AI_GPT_MODEL,
         stream: false,
-    })
+    });
 
     try {
         const response = await fetch(OPEN_AI_COMPLETIONS_URL, {

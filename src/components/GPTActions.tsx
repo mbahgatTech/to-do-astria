@@ -12,7 +12,6 @@ const GPTActions = ({ tasks }: { tasks: Array<TaskInterface> }) => {
             message = `${message}- ${tasks[i].description}\n`;
         }
 
-
         await addMessage(message);
     };
     
