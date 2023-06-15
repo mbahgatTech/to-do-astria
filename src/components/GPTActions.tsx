@@ -1,6 +1,6 @@
 import React from 'react';
 import { useMessages } from '@/utils/useMessages';
-import { TaskInterface, GPTReply } from '@/utils/types';
+import { TaskInterface, GPTReply } from '@/utils/interfaces';
 
 const GPTActions = ({ tasks }: { tasks: Array<TaskInterface> }) => {
     const { lastReply, addMessage, isLoadingAnswer }: { lastReply: GPTReply, addMessage: (message: string) => any, isLoadingAnswer: Boolean } = useMessages();
