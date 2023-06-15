@@ -5,23 +5,26 @@ import { TaskInterface } from '@/utils/Types';
 import React, { useState } from 'react';
 import TaskList from '@/components/TaskList';
 import TaskForm from '@/components/TaskForm';
+import GPTActions from '@/components/GPTActions';
  
-
 const Home = () => {
-  const [todos, setTodos] = useState<Array<TaskInterface>>([]);
+  const [tasks, setTasks] = useState<Array<TaskInterface>>([]);
   
-  const addTodo = (text: string) => {
-    setTodos([...todos, { id:  v4(), description: text }]);
+  const addTask = (text: string) => {
+    setTasks([...tasks, { id:  v4(), description: text }]);
   };
   
-  const deleteTodo = (id: string) => {
-    setTodos(todos.filter(todo => todo.id !== id));
+  const deleteTask = (id: string) => {
+    setTasks(tasks.filter(todo => todo.id !== id));
   };
   
   return (
     <div>
-      <TaskForm addTask={addTodo} />
-      <TaskList tasks={todos} deleteTask={deleteTodo} />
+      <TaskForm addTask={addTask} />
+
+      { tasks?.length && <GPTActions tasks={tasks} /> }
+      
+      <TaskList tasks={tasks} deleteTask={deleteTask} />
     </div>
   );
 };
