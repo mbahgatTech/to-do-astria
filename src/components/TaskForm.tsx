@@ -14,7 +14,7 @@ const TodoForm = ({ addTask }: { addTask: (text: string) => any }) => {
   };
  
   return (
-    <form onSubmit={handleSubmit} className='flex self-center justify-center m-4 w-[70%]'>
+    <form onSubmit={handleSubmit} className='flex self-center justify-center m-4'>
       <input
         type="text"
         value={text}
