@@ -1,11 +1,12 @@
 'use client'
 
-import { v4 } from 'uuid';
-import { TaskInterface } from '@/utils/Types';
-import React, { useState } from 'react';
 import TaskList from '@/components/TaskList';
 import TaskForm from '@/components/TaskForm';
 import GPTActions from '@/components/GPTActions';
+import React, { useState } from 'react';
+import { v4 } from 'uuid';
+import { TaskInterface } from '@/utils/types';
+import { MessagesProvider } from '@/utils/useMessages';
  
 const Home = () => {
   const [tasks, setTasks] = useState<Array<TaskInterface>>([]);
@@ -19,13 +20,15 @@ const Home = () => {
   };
   
   return (
-    <div>
-      <TaskForm addTask={addTask} />
+    <MessagesProvider>
+      <div>
+        <TaskForm addTask={addTask} />
 
-      { tasks?.length && <GPTActions tasks={tasks} /> }
-      
-      <TaskList tasks={tasks} deleteTask={deleteTask} />
-    </div>
+        { tasks?.length > 0 && <GPTActions tasks={tasks} /> }
+        
+        <TaskList tasks={tasks} deleteTask={deleteTask} />
+      </div>
+    </MessagesProvider>
   );
 };
  
