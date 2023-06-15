@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { OPEN_AI_COMPLETIONS_URL, OPEN_AI_GPT_MODEL } from '@/utils/constants';
 
-async function POST(req: NextRequest, res: Response) {
+const POST = async (req: NextRequest) => {
     const { messages } = await req.json();
 
     const body = JSON.stringify({
