@@ -5,7 +5,7 @@ import TaskForm from '@/components/TaskForm';
 import GPTActions from '@/components/GPTActions';
 import React, { useState } from 'react';
 import { v4 } from 'uuid';
-import { TaskInterface } from '@/utils/types';
+import { TaskInterface } from '@/utils/interfaces';
 import { MessagesProvider } from '@/utils/useMessages';
  
 const Home = () => {

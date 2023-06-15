@@ -1,6 +1,6 @@
 import fetchActions from './fetchActions';
 import { OPEN_AI_GPT_SYSTEM_MESSAGE } from './constants';
-import { ContextProps,GPTReply } from './types';
+import { ContextProps,GPTReply } from './interfaces';
 import { ChatCompletionRequestMessage } from 'openai';
 import {
   ReactNode,

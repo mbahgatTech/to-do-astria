@@ -1,5 +1,5 @@
 import React from 'react';
-import { TaskInterface } from '@/utils/types';
+import { TaskInterface } from '@/utils/interfaces';
 
 const TaskList = ({ tasks, deleteTask } : { tasks: Array<TaskInterface>, deleteTask: (id: string) => void }) => {
   return (
