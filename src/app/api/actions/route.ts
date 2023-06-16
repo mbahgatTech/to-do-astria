@@ -1,17 +1,17 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { OPEN_AI_COMPLETIONS_URL, OPEN_AI_GPT_MODEL } from '@/utils/constants';
+import { GPT_COMPLETIONS_URL, GPT_MODEL } from '@/utils/constants';
 
 const POST = async (req: NextRequest) => {
     const { messages } = await req.json();
 
     const body = JSON.stringify({
         messages,
-        model: OPEN_AI_GPT_MODEL,
+        model: GPT_MODEL,
         stream: false,
     });
 
     try {
-        const response = await fetch(OPEN_AI_COMPLETIONS_URL, {
+        const response = await fetch(GPT_COMPLETIONS_URL, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
