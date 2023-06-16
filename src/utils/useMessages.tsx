@@ -1,7 +1,11 @@
 import fetchActions from './fetchActions';
-import { OPEN_AI_GPT_SYSTEM_MESSAGE } from './constants';
 import { ContextProps,GPTReply } from './interfaces';
 import { ChatCompletionRequestMessage } from 'openai';
+import { 
+  GPT_SYSTEM_MESSAGE,
+  GPT_SYSTEM, 
+  GPT_ASSISTANT, 
+  GPT_USER } from './constants';
 import {
   ReactNode,
   createContext,
@@ -20,8 +24,8 @@ const MessagesProvider = ({ children }: { children: ReactNode }) => {
   useEffect(() => {
     const initializeChat = () => {
         const systemMessage: ChatCompletionRequestMessage = {
-        role: 'system',
-        content: OPEN_AI_GPT_SYSTEM_MESSAGE,
+          role: GPT_SYSTEM,
+          content: GPT_SYSTEM_MESSAGE,
         };
 
         setMessages([systemMessage, ...messages]);
@@ -37,7 +41,7 @@ const MessagesProvider = ({ children }: { children: ReactNode }) => {
 
     try {
         const newMessage: ChatCompletionRequestMessage = {
-            role: 'user',
+            role: GPT_USER,
             content,
         };
 
@@ -51,7 +55,10 @@ const MessagesProvider = ({ children }: { children: ReactNode }) => {
         setMessages([...newMessages, reply]);
         setReply(reply);
     } catch (error: any) {
-        console.log(error);
+        setReply({ 
+          role: GPT_ASSISTANT, 
+          content: 'Failed to fetch task actions from GPT. Please try again at a later time.'
+        });
     } finally {
         setIsLoadingAnswer(false);
     }

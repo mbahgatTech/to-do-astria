@@ -1,6 +1,7 @@
 import React from 'react';
 import { useMessages } from '@/utils/useMessages';
 import { TaskInterface, ContextProps } from '@/utils/interfaces';
+import { GPT_ASSISTANT } from '@/utils/constants';
 
 const GPTActions = ({ tasks }: { tasks: Array<TaskInterface> }) => {
     const { lastReply, setReply, addMessage, isLoadingAnswer }: ContextProps = useMessages();
@@ -21,7 +22,7 @@ const GPTActions = ({ tasks }: { tasks: Array<TaskInterface> }) => {
     
     return (
         <div className='flex'>
-            {lastReply && lastReply.role === 'assistant' && (
+            {lastReply && lastReply.role === GPT_ASSISTANT && (
                 <div className='fixed w-full overflow-y-auto mx-auto my-auto max-h-[80%] inset-0 z-50 p-8 justify-center items-center animated fadeIn faster'>
                     <div className='border border-teal-500 shadow-lg bg-white w-11/12 md:max-w-md mx-auto rounded z-50 overflow-y-auto'>
                         <div className='modal-content py-4 text-left px-6'>
