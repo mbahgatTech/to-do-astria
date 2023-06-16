@@ -58,7 +58,7 @@ const MessagesProvider = ({ children }: { children: ReactNode }) => {
   };
 
   return (
-        <ChatsContext.Provider value={{ messages, lastReply, addMessage, isLoadingAnswer }}>
+        <ChatsContext.Provider value={{ messages, lastReply, setReply, addMessage, isLoadingAnswer }}>
             {children}
         </ChatsContext.Provider>
   );
