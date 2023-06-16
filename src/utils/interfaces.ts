@@ -8,6 +8,7 @@ export interface TaskInterface {
 export interface ContextProps {
     messages: ChatCompletionRequestMessage[],
     lastReply: GPTReply,
+    setReply: (reply: GPTReply) => any,
     addMessage: (content: string) => Promise<void>,
     isLoadingAnswer: boolean
 };
