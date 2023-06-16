@@ -16,3 +16,10 @@ A simple AI Powered to-do list web application.
 
 
 > Note: You might receive error messages when trying to generate GPT actions due to longer response times of OpenAI APIs and Vercel's 5 second gateway timeout windows resulting in 504 errors.
+
+## For Developers
+
+### Environment
+Add `.env.local` file to root of this project. 
+
+- OPENAI_API_KEY: OpenAI API key for GPT calls
